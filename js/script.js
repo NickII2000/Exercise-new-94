@@ -391,7 +391,7 @@ window.addEventListener('DOMContentLoaded', () => {
     slider.style.position = 'relative';
 
     const indicators = document.createElement('ol');
-    indicators.classList.add('carousel-indicators');
+    indicators.classList.add('carousel-indicators'); // если бы стили были в CSS-файле
     indicators.style.cssText = `
         position: absolute;
         right: 0;
@@ -408,6 +408,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
     for (let i = 0; i < slides.length; i++) {
         const dot = document.createElement('li');
+        dot.classList.add('dot'); // если бы стили были в CSS-файле
+        dot.setAttribute('data-slide-to', i + 1);
+        dot.style.cssText = `
+            box-sizing: content-box;
+            flex: 0 1 auto;
+            width: 30px;
+            height: 6px;
+            margin-right: 3px;
+            margin-left: 3px;
+            cursor: pointer;
+            background-color: #fff;
+            background-clip: padding-box;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            opacity: .5;
+            transition: opacity .6s ease; 
+        `;
+        indicators.append(dot);
     }
 
     next.addEventListener('click', () => {
