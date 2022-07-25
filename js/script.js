@@ -425,6 +425,9 @@ window.addEventListener('DOMContentLoaded', () => {
             opacity: .5;
             transition: opacity .6s ease; 
         `;
+        if (i == 0) {
+            dot.style.opacity = 1;
+        }
         indicators.append(dot);
     }
 
