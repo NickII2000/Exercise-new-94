@@ -390,7 +390,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     slider.style.position = 'relative';
 
-    const indicators = document.createElement('ol');
+    const indicators = document.createElement('ol'),
+        dots = [];
     indicators.classList.add('carousel-indicators'); // если бы стили были в CSS-файле
     indicators.style.cssText = `
         position: absolute;
@@ -429,6 +430,7 @@ window.addEventListener('DOMContentLoaded', () => {
             dot.style.opacity = 1;
         }
         indicators.append(dot);
+        dots.push(dot);
     }
 
     next.addEventListener('click', () => {
@@ -447,6 +449,9 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         current.textContent = slideIndex < 10 ? `0${slideIndex}` : slideIndex;
 
+        dots.forEach(dot => dot.style.opacity = '.5');
+        dots[slideIndex - 1].style.opacity = 1;
+
     });
 
     prev.addEventListener('click', () => {
@@ -463,6 +468,9 @@ window.addEventListener('DOMContentLoaded', () => {
             slideIndex--;
         }
         current.textContent = slideIndex < 10 ? `0${slideIndex}` : slideIndex;
+
+        dots.forEach(dot => dot.style.opacity = '.5');
+        dots[slideIndex - 1].style.opacity = 1;
 
     });
 
