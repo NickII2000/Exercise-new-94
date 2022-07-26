@@ -433,9 +433,7 @@ window.addEventListener('DOMContentLoaded', () => {
         dots.push(dot);
     }
 
-    function deleteNotDigits(str) {
-        return +str.replace(/\D/g, '');
-    }
+    const deleteNotDigits = (str) => +str.replace(/\D/g, '');
 
     next.addEventListener('click', () => {
         if (offset == deleteNotDigits(width) * (slides.length - 1)) { //'500px'
